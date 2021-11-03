@@ -1,6 +1,5 @@
 const SmartICO = artifacts.require('SmartICO');
 const { catchRevert } = require("./err.js");
-const { items: ItemStruct, isDefined, isPayable, isType } = require("./ast-helper");
 
 contract("SmartICO", async accounts => {
         const con;
@@ -24,34 +23,34 @@ contract("SmartICO", async accounts => {
                         assert.equal(typeof startId, 'function');
                 });
         });
-        describe("Enums", async () => {
-                var enumState;
-                before(() => {
-                        enumState = SmartICO.enums.State;
-                        assert(
-                                enumState,
-                                "Err, State enum undefined"
-                        );
-                });
-                it("Enum -> Open", async () => { //4
-                        assert(
-                                enumState.hasOwnProperty('Open'),
-                                "Err, State enum -> 'Open' undefined"
-                        );
-                });
-                it("Enum -> Finished", async () => { //5
-                        assert(
-                                enumState.hasOwnProperty('Finished'),
-                                "Err, State enum -> 'Finished' undefined"
-                        );
-                });
-                it("Enum -> Winner", async () => { //6
-                        assert(
-                                enumState.hasOwnProperty('Winner'),
-                                "Err, State enum -> 'Winner' undefined"
-                        );
-                });
-        });
+//         describe("Enums", async () => {
+//                 var enumState;
+//                 before(() => {
+//                         enumState = SmartICO.enums.State;
+//                         assert(
+//                                 enumState,
+//                                 "Err, State enum undefined"
+//                         );
+//                 });
+//                 it("Enum -> Open", async () => { //4
+//                         assert(
+//                                 enumState.hasOwnProperty('Open'),
+//                                 "Err, State enum -> 'Open' undefined"
+//                         );
+//                 });
+//                 it("Enum -> Finished", async () => { //5
+//                         assert(
+//                                 enumState.hasOwnProperty('Finished'),
+//                                 "Err, State enum -> 'Finished' undefined"
+//                         );
+//                 });
+//                 it("Enum -> Winner", async () => { //6
+//                         assert(
+//                                 enumState.hasOwnProperty('Winner'),
+//                                 "Err, State enum -> 'Winner' undefined"
+//                         );
+//                 });
+//         });
         describe("deposit", async () => {
                 it("Deposit Success", async () => { //7
                         await con.deposit({from: alice, value: eth1});
